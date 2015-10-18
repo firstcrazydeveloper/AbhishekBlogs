@@ -1,0 +1,69 @@
+﻿@using AbhishekBlogs.Helpers;
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@using PagedList;
+@model PagedList.IPagedList<AbhishekBlogsDataEntities.BlogEntity>
+@using PagedList.Mvc;
+
+@foreach (var child in Model)
+{
+    <div class="bloglistDiv">
+
+
+        <h3>
+            <img src="~/Images/FirstCrazyDeveloper_Logo_Small.gif" class="topimage" title="Crazy Developer" alt="crazydeveloper" />
+            <a href="@Url.Action("BlogView", new { id = child.Id, typename = child.Name.ToSeoUrl() })" data-disqus-identifier="@child.Name">
+                <span>@child.Name</span>
+            </a>
+        </h3>
+
+
+
+
+        @{
+    string Explanation = "";
+    if (child.BlogShortContent != null)
+    {
+        Explanation = child.BlogShortContent;
+    }
+    else
+    {
+        Explanation = child.Description;
+
+    }
+    if (Explanation.Length > 2000)
+    {
+        Explanation = Explanation.Substring(0, 2000);
+        Explanation = Explanation + ".....";
+    }
+
+        }
+        <div id="divbloglist" style="font-family:Arial;font-size:10pt;color:#696969;">
+            @Html.Raw(Explanation)
+        </div>
+       
+        <div class="footerdiv">
+            <div class="post-more-link" style="width:100px;margin-left:16px;float:right;margin-bottom:5px;">
+                @Html.ActionLink("Read more » ", "BlogView", new { id = child.Id, typename = child.Name.ToSeoUrl() }, new { @class = "blogcomments" })
+               
+            </div>
+            <span style="float:left;">@(Convert.ToDateTime(child.CreateDate).ToString("dd MMMM yyyy").Replace('-', '/'))</span>
+            @*<img src="~/Images/comment.gif" title="Crazy Developer" style="width:60px;height:40px;" alt="crazydeveloper" />@Html.ActionLink(child.Name, "BlogView", new { id = child.Id, typename = child.Name.ToSeoUrl() }, new { @class = "blogcomments" })*@
+            
+
+        </div>
+
+    </div>
+
+
+}
+<br />
+<div style="font-weight:bold;">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</div>
+
+    @Html.PagedListPager(Model, page => Url.Action("Bloglist",
+                            new { page, id = Convert.ToInt32(TempData["typeId"]), typename = Convert.ToString(TempData["typename"]) == "" ? "All" : Convert.ToString(TempData["typename"]) }))
+

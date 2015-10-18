@@ -1,0 +1,27 @@
+﻿@model IEnumerable<AbhishekBlogsDataEntities.GetBlogTypeDetailsEntity>
+@using AbhishekBlogs.Helpers;
+
+<div class="navigation">
+
+    @*<img src="~/Images/cd_icon.gif" class="logoimage" title="Crazy Developer" alt="crazydeveloper" />
+    <span class="logotitle">ABHISHEK</span>
+    <h2 class="fancontent"></h2>*@
+    <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav" style="text-align:left!important">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href='@Url.Action("Bloglist", "Home", new { id = item.BlogTypeId, typename = item.Name.ToSeoUrl() })'>
+                        <i class="icon-chevron-right"></i> @item.Name (@item.Total)
+                    </a>
+                </li>
+
+
+
+            }
+
+
+        </ul>
+    </div>
+</div>
+

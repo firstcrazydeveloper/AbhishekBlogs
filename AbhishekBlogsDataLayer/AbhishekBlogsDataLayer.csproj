@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{627C35B9-83FF-49BF-BC8B-D71898F7BBF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AbhishekBlogsDataLayer</RootNamespace>
+    <AssemblyName>AbhishekBlogsDataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbhishekBlogsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbhishekBlogsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AbhishekBlogsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbhishekBlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AbhishekBlogsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbhishekBlogsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit_blogs.cs">
+      <DependentUpon>AbhishekBlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="blog.cs">
+      <DependentUpon>AbhishekBlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BlogKeywords.cs" />
+    <Compile Include="blog_keywords.cs">
+      <DependentUpon>AbhishekBlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="blog_type.cs">
+      <DependentUpon>AbhishekBlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blogs.cs" />
+    <Compile Include="Blog_Types.cs" />
+    <Compile Include="Comment.cs">
+      <DependentUpon>AbhishekBlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Decorator.cs" />
+    <Compile Include="GetBlogDetailsResult.cs" />
+    <Compile Include="GetBlogDetails_Result.cs">
+      <DependentUpon>AbhishekBlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="subscribed_user.cs">
+      <DependentUpon>AbhishekBlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subscribed_Users.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="AbhishekBlogsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AbhishekBlogsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AbhishekBlogsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AbhishekBlogsModel.edmx</DependentUpon>
+      <LastGenOutput>AbhishekBlogsModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="AbhishekBlogsModel.edmx.diagram">
+      <DependentUpon>AbhishekBlogsModel.edmx</DependentUpon>
+    </None>
+    <None Include="AbhishekBlogsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AbhishekBlogsModel.edmx</DependentUpon>
+      <LastGenOutput>AbhishekBlogsModel.cs</LastGenOutput>
+    </None>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AbhishekBlogApplicationLog\AbhishekBlogApplicationLog.csproj">
+      <Project>{570b9930-f432-408a-bb38-255a11fdd164}</Project>
+      <Name>AbhishekBlogApplicationLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AbhishekBlogsDataEntities\AbhishekBlogsDataEntities.csproj">
+      <Project>{bc2b8921-1cba-4e40-9044-4c00c234c065}</Project>
+      <Name>AbhishekBlogsDataEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

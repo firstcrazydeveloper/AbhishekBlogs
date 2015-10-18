@@ -1,0 +1,66 @@
+﻿@model AbhishekBlogsDataEntities.BlogEntity
+<div class="contactus">
+    <div>
+        <h4>BlogEntity</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Blog_type_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Blog_type_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Blog_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Blog_Id)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BlogShortContent)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BlogShortContent)
+            </dd>
+
+            <dt>
+           
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreateDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsPublished)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsPublished)
+            </dd>
+
+           
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Publish", "Publish", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

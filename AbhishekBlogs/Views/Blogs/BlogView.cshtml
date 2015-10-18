@@ -1,0 +1,71 @@
+﻿@model AbhishekBlogsDataEntities.BlogEntity
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+@using AbhishekBlogs.Helpers;
+<div class="bloglistviewDiv viewBlog">
+    <div style="float:left;width:100%;margin-bottom:10px;">
+        <div style="float:left;">
+            <h3>
+                <img src="~/Images/FirstCrazyDeveloper_Logo_Small.gif" class="topimage" title="Crazy Developer" alt="crazydeveloper" />
+                @( Model.Name)
+            </h3>
+            </div>
+            <div style="float:right;margin-top:5px;">
+                <span class='st_fblike_hcount' displaytext='Facebook Like'></span>
+                <span class='st_twitterfollow_hcount' displaytext='Twitter Follow' st_username='developer_crazy'></span>
+                <span class='st_plusone_hcount' displaytext='Google +1'></span>
+                
+            </div>
+        </div>
+    <div id="divblogdescription" style="float:left;width:100%;font-family:Arial;font-size:10pt;color:#696969;">
+
+        @Html.Raw(Model.Description)
+    </div>
+    <hr />
+    <div class="bottomdiv">
+        <img src="~/Images/back.png" title="Crazy Developer" alt="crazydeveloper" /> @Html.ActionLink("Home Page", "HomePage")
+        <span>@(Convert.ToDateTime(Model.CreateDate).ToString("dd MMMM yyyy").Replace('-', '/'))</span>
+    </div>
+    <div style="margin-top:5px;margin-bottom:5px;float:left;">
+       
+        <div style="float:left;">
+            <!-- Go to www.addthis.com/dashboard to generate a new set of sharing buttons -->
+            @*<a href="https://api.addthis.com/oexchange/0.8/forward/linkedin/offer?url=www.firstcrazydeveloper.com/@Url.Action("BlogView", new { id = Model.Id, typename = Model.Name.ToSeoUrl() })&pubid=ra-554a25f3054d1499&ct=1&title=@Model.Name" target="_blank"><img src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/linkedin.png" border="0" alt="LinkedIn" /></a>
+                <a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=www.firstcrazydeveloper.com/@Url.Action("BlogView", new { id = Model.Id, typename = Model.Name.ToSeoUrl() })&pubid=ra-554a25f3054d1499&ct=1&title=@Model.Name" target="_blank"><img src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/facebook.png" border="0" alt="Facebook" /></a>
+                <a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=www.firstcrazydeveloper.com/@Url.Action("BlogView", new { id = Model.Id, typename = Model.Name.ToSeoUrl() })&pubid=ra-554a25f3054d1499&ct=1&title=@Model.Name" target="_blank"><img src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/twitter.png" border="0" alt="Twitter" /></a>
+                <a href="https://api.addthis.com/oexchange/0.8/forward/google/offer?url=www.firstcrazydeveloper.com/@Url.Action("BlogView", new { id = Model.Id, typename = Model.Name.ToSeoUrl() })&pubid=ra-554a25f3054d1499&ct=1&title=@Model.Name" target="_blank"><img src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/google.png" border="0" alt="Google" /></a>*@
+            <span class='st_sharethis_hcount' displaytext='ShareThis'></span>
+            <span class='st_facebook_hcount' displaytext='Facebook'></span>
+            <span class='st_twitter_hcount' displaytext='Tweet'></span>
+            <span class='st_linkedin_hcount' displaytext='LinkedIn'></span>
+            <span class='st_googleplus_hcount' displaytext='Google +'></span><br />
+            <span class='st_whatsapp_hcount' displaytext='WhatsApp'></span>
+            <span class='st_digg_hcount' displaytext='Digg'></span>
+            <span class='st_wordpress_hcount' displaytext='WordPress'></span>
+            <span class='st_xing_hcount' displaytext='Xing'></span>
+            <span class='st_yammer_hcount' displaytext='Yammer'></span>
+        </div>
+        
+    </div>
+        <div>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES * * */
+                var disqus_shortname = 'firstcrazydevelopercom';
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function () {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+        </div>
+
+
+    </div>

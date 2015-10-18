@@ -1,0 +1,128 @@
+﻿
+@media screen and (max-width:1200px){
+    /*.navigationpart{
+        display:none;
+    }*/
+    .maincontentarea{
+        width:78%!important;
+    }
+}
+@media screen and (max-width:1020px){
+    /*.navigationpart{
+        display:none;
+    }*/
+     #header h1 {
+    margin-left: 8%!important;
+   
+}
+    .maincontentarea{
+        width:76%!important;
+    }
+}
+@media screen and (max-width:900px){
+    /*.navigationpart{
+        display:none;
+    }*/
+    .maincontentarea{
+        width:74%!important;
+    }
+}
+@media screen and (max-width:800px){
+    /*.navigationpart{
+        display:none;
+    }*/
+    .maincontentarea{
+        width:70%!important;
+    }
+}
+@media screen and (max-width:700px){
+  
+    .maincontentarea{
+        width:64%!important;
+    }
+}
+@media screen and (max-width:600px){
+    #header h1 {
+    margin-left: 9%!important;
+    font-size:19px!important;
+}
+    
+    #tagline span {font-size:12px!important;}
+   .toplogo {
+    width:35px!important;
+    height: 35px!important;
+}
+    .maincontentarea{
+        width:64%!important;
+    }
+    #menu li a{
+        font-size:11px;
+    }
+    .pagerightarea{
+        float:left!important;
+    }
+}
+@media screen and (max-width:500px){
+    .searcharea{
+    float:right;margin-top: -37px;
+    display:none;
+}
+    body{
+        font-size:10px;
+    }
+    .bloglistDiv h3{
+        font-size:14px;
+    }
+    .maincontentarea{
+        width:60%!important;
+    }
+    .navigationpart{
+        display:none;
+    }
+    .pagerightarea{
+        float:left!important;
+    }
+     #header img{width:300px!important;}
+}
+@media screen and (max-width:400px){
+  
+    .navigationpart{
+        display:none;
+    }
+    .maincontentarea{
+        width:55%!important;
+    }
+    .pagerightarea{
+        float:left!important;
+    }
+}
+@media screen and  (max-width: 375px) {
+    
+     .navigationpart{
+        display:none;
+    }
+   
+    body{
+        font-size:10px;
+    }
+    .bloglistDiv h3{
+        font-size:12px;
+    }
+    .pagerightarea{
+        float:left!important;
+    }
+   
+}
+@media screen and (max-width:300px){
+    
+    .navigationpart{
+        display:none;
+    }
+    .maincontentarea{
+        width:100%!important;
+    }
+    
+    .pagerightarea{
+        float:left!important;
+    }
+}

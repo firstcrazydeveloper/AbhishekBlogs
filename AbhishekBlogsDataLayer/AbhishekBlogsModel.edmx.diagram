@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="59a8c16fe983493a9a69c9cf2c9826d7" Name="Diagram1">
+        <EntityTypeShape EntityType="crazydeveloperModel.Comment" Width="1.5" PointX="6" PointY="6.625" />
+        <EntityTypeShape EntityType="crazydeveloperModel.blog_type" Width="1.5" PointX="1.125" PointY="5.875" />
+        <EntityTypeShape EntityType="crazydeveloperModel.subscribed_user" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="crazydeveloperModel.Audit_blogs" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="crazydeveloperModel.blog_keywords" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="crazydeveloperModel.blog" Width="1.5" PointX="3.375" PointY="5" />
+        <AssociationConnector Association="crazydeveloperModel.FK__blogs__Blog_type__1FCDBCEB" />
+        <AssociationConnector Association="crazydeveloperModel.FK_Comments_blogs" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

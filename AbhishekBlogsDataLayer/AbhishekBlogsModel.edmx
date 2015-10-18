@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="crazydeveloperModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'abhishekblognew.dbo.Audit_blogs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Audit_blogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="log_Id" Type="int" />
+          <Property Name="Blog_type_Id" Type="int" />
+          <Property Name="Blog_Id" Type="varchar" MaxLength="255" />
+          <Property Name="Blog_short_Content" Type="nvarchar(max)" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Audit_TimeStamp" Type="datetime" />
+          <Property Name="Audit_Action" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="blog_keywords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Page_Id" Type="int" />
+          <Property Name="Page_Type" Type="nvarchar" MaxLength="200" />
+          <Property Name="Page_Keywords" Type="nvarchar(max)" />
+          <Property Name="Page_Description" Type="nvarchar(max)" />
+          <Property Name="Keyword_CreatedDate" Type="datetime" />
+          <Property Name="Keyword_UpdatedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="blog_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="blogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Blog_type_Id" Type="int" />
+          <Property Name="Blog_Id" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Blog_short_Content" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsPublished" Type="bit" />
+          <Property Name="Page_Keywords" Type="nvarchar(max)" />
+          <Property Name="Page_Description" Type="nvarchar(max)" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Commentdetails" Type="nvarchar(max)" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
+          <Property Name="createdDate" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="subscribed_user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="nchar" MaxLength="200" />
+          <Property Name="User_Email" Type="nchar" MaxLength="100" />
+          <Property Name="User_Contact" Type="nchar" MaxLength="50" />
+          <Property Name="User_Address" Type="nchar" MaxLength="200" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="BlogTypeId" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK__blogs__Blog_type__1FCDBCEB">
+          <End Role="blog_type" Type="Self.blog_type" Multiplicity="0..1" />
+          <End Role="blogs" Type="Self.blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blog_type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="blogs">
+              <PropertyRef Name="Blog_type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_blogs">
+          <End Role="blogs" Type="Self.blogs" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="blogs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetBlogDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="crazydeveloperModelStoreContainer">
+          <EntitySet Name="blog_keywords" EntityType="Self.blog_keywords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="blog_type" EntityType="Self.blog_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="blogs" EntityType="Self.blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscribed_user" EntityType="Self.subscribed_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Audit_blogs" EntityType="Self.Audit_blogs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Audit_blogs].[Id] AS [Id], 
+    [Audit_blogs].[log_Id] AS [log_Id], 
+    [Audit_blogs].[Blog_type_Id] AS [Blog_type_Id], 
+    [Audit_blogs].[Blog_Id] AS [Blog_Id], 
+    [Audit_blogs].[Blog_short_Content] AS [Blog_short_Content], 
+    [Audit_blogs].[Name] AS [Name], 
+    [Audit_blogs].[Description] AS [Description], 
+    [Audit_blogs].[Audit_TimeStamp] AS [Audit_TimeStamp], 
+    [Audit_blogs].[Audit_Action] AS [Audit_Action]
+    FROM [dbo].[Audit_blogs] AS [Audit_blogs]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__blogs__Blog_type__1FCDBCEB" Association="Self.FK__blogs__Blog_type__1FCDBCEB">
+            <End Role="blog_type" EntitySet="blog_type" />
+            <End Role="blogs" EntitySet="blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_blogs" Association="Self.FK_Comments_blogs">
+            <End Role="blogs" EntitySet="blogs" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="crazydeveloperModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AbhishekBlogsEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="GetBlogDetails" ReturnType="Collection(crazydeveloperModel.GetBlogDetails_Result)" />
+          <EntitySet Name="Comments" EntityType="crazydeveloperModel.Comment" />
+          <EntitySet Name="blog_type" EntityType="crazydeveloperModel.blog_type" />
+          <EntitySet Name="subscribed_user" EntityType="crazydeveloperModel.subscribed_user" />
+          <EntitySet Name="Audit_blogs" EntityType="crazydeveloperModel.Audit_blogs" />
+          <EntitySet Name="blog_keywords" EntityType="crazydeveloperModel.blog_keywords" />
+          <EntitySet Name="blogs" EntityType="crazydeveloperModel.blog" />
+          <AssociationSet Name="FK__blogs__Blog_type__1FCDBCEB" Association="crazydeveloperModel.FK__blogs__Blog_type__1FCDBCEB">
+            <End Role="blog_type" EntitySet="blog_type" />
+            <End Role="blog" EntitySet="blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_blogs" Association="crazydeveloperModel.FK_Comments_blogs">
+            <End Role="blog" EntitySet="blogs" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="GetBlogDetails_Result">
+          <Property Type="Int32" Name="BlogTypeId" Nullable="true" />
+          <Property Type="Int32" Name="Total" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Commentdetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="blog" Relationship="crazydeveloperModel.FK_Comments_blogs" FromRole="Comment" ToRole="blog" />
+        </EntityType>
+        <EntityType Name="blog_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="blogs" Relationship="crazydeveloperModel.FK__blogs__Blog_type__1FCDBCEB" FromRole="blog_type" ToRole="blog" />
+        </EntityType>
+        <EntityType Name="subscribed_user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="User_Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="User_Contact" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="User_Address" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="BlogTypeId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Audit_blogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="log_Id" Type="Int32" />
+          <Property Name="Blog_type_Id" Type="Int32" />
+          <Property Name="Blog_Id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Blog_short_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Audit_TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="Audit_Action" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="blog_keywords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Page_Id" Type="Int32" />
+          <Property Name="Page_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Page_Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Page_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Keyword_CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Keyword_UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="blog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Blog_type_Id" Type="Int32" />
+          <Property Name="Blog_Id" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Blog_short_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsPublished" Type="Boolean" />
+          <Property Name="Page_Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Page_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="blog_type" Relationship="crazydeveloperModel.FK__blogs__Blog_type__1FCDBCEB" FromRole="blog" ToRole="blog_type" />
+          <NavigationProperty Name="Comment" Relationship="crazydeveloperModel.FK_Comments_blogs" FromRole="blog" ToRole="Comment" />
+        </EntityType>
+        <Association Name="FK__blogs__Blog_type__1FCDBCEB">
+          <End Type="crazydeveloperModel.blog_type" Role="blog_type" Multiplicity="0..1" />
+          <End Type="crazydeveloperModel.blog" Role="blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blog_type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="blog">
+              <PropertyRef Name="Blog_type_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_blogs">
+          <End Type="crazydeveloperModel.blog" Role="blog" Multiplicity="1" />
+          <End Type="crazydeveloperModel.Comment" Role="Comment" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="blog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="crazydeveloperModelStoreContainer" CdmEntityContainer="AbhishekBlogsEntities">
+          <FunctionImportMapping FunctionImportName="GetBlogDetails" FunctionName="crazydeveloperModel.Store.GetBlogDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="crazydeveloperModel.GetBlogDetails_Result">
+                <ScalarProperty Name="BlogTypeId" ColumnName="BlogTypeId" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="crazydeveloperModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="Commentdetails" ColumnName="Commentdetails" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="blog_type">
+            <EntityTypeMapping TypeName="crazydeveloperModel.blog_type">
+              <MappingFragment StoreEntitySet="blog_type">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscribed_user">
+            <EntityTypeMapping TypeName="crazydeveloperModel.subscribed_user">
+              <MappingFragment StoreEntitySet="subscribed_user">
+                <ScalarProperty Name="BlogTypeId" ColumnName="BlogTypeId" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="User_Address" ColumnName="User_Address" />
+                <ScalarProperty Name="User_Contact" ColumnName="User_Contact" />
+                <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Audit_blogs">
+            <EntityTypeMapping TypeName="crazydeveloperModel.Audit_blogs">
+              <MappingFragment StoreEntitySet="Audit_blogs">
+                <ScalarProperty Name="Audit_Action" ColumnName="Audit_Action" />
+                <ScalarProperty Name="Audit_TimeStamp" ColumnName="Audit_TimeStamp" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Blog_short_Content" ColumnName="Blog_short_Content" />
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_type_Id" ColumnName="Blog_type_Id" />
+                <ScalarProperty Name="log_Id" ColumnName="log_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="blog_keywords">
+            <EntityTypeMapping TypeName="crazydeveloperModel.blog_keywords">
+              <MappingFragment StoreEntitySet="blog_keywords">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Keyword_UpdatedDate" ColumnName="Keyword_UpdatedDate" />
+                <ScalarProperty Name="Keyword_CreatedDate" ColumnName="Keyword_CreatedDate" />
+                <ScalarProperty Name="Page_Description" ColumnName="Page_Description" />
+                <ScalarProperty Name="Page_Keywords" ColumnName="Page_Keywords" />
+                <ScalarProperty Name="Page_Type" ColumnName="Page_Type" />
+                <ScalarProperty Name="Page_Id" ColumnName="Page_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="blogs">
+            <EntityTypeMapping TypeName="crazydeveloperModel.blog">
+              <MappingFragment StoreEntitySet="blogs">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Page_Description" ColumnName="Page_Description" />
+                <ScalarProperty Name="Page_Keywords" ColumnName="Page_Keywords" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Blog_short_Content" ColumnName="Blog_short_Content" />
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_type_Id" ColumnName="Blog_type_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

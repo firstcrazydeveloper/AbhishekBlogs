@@ -1,0 +1,64 @@
+﻿@using PagedList;
+@model PagedList.IPagedList<AbhishekBlogsDataEntities.BlogEntity>
+@using PagedList.Mvc;
+<div class="contactus">
+    <p>
+        <b> @Html.ActionLink("Create New Blog", "Create")</b>
+    </p>
+    @using (Html.BeginForm("Index", "Blogs", FormMethod.Get))
+    {
+        <div style="margin-bottom:10px;">
+            @*<b>Search by:</b>@Html.RadioButton("searchBy", "Name")<text> Name</text>
+                @Html.RadioButton("searchBy", "Gender")<text>Gender</text><br />*@
+            <b>
+                Search by:<text> Blog Title</text></b>
+                @Html.TextBox("SearchString")<input type="submit" value="Search" />
+        </div>
+    }
+    <table class="table">
+       
+        <tr>
+            <th>
+                @Html.ActionLink("Blog Title", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.ActionLink("CreateDate Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+               Publish Status
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPublished)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+        }
+
+    </table>
+    <br />
+    <div style="font-weight:bold;">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+      </div>
+
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>

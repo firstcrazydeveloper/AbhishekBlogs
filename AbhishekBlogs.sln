@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbhishekBlogsDataLayer", "AbhishekBlogsDataLayer\AbhishekBlogsDataLayer.csproj", "{627C35B9-83FF-49BF-BC8B-D71898F7BBF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbhishekBlogsDataEntities", "AbhishekBlogsDataEntities\AbhishekBlogsDataEntities.csproj", "{BC2B8921-1CBA-4E40-9044-4C00C234C065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbhishekBlogsBusinessLayer", "AbhishekBlogsBusinessLayer\AbhishekBlogsBusinessLayer.csproj", "{73DC19D0-FE67-4B70-8ABF-8D021A27D21F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbhishekBlogs", "AbhishekBlogs\AbhishekBlogs.csproj", "{E8D3EC4D-F4CB-4B31-88B8-F8A90AF274B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{24578B81-9BA4-4755-A85B-1E4E8448864B}"
+	ProjectSection(SolutionItems) = preProject
+		WebEssentials-Settings.json = WebEssentials-Settings.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbhishekBlogApplicationLog", "AbhishekBlogApplicationLog\AbhishekBlogApplicationLog.csproj", "{570B9930-F432-408A-BB38-255A11FDD164}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{627C35B9-83FF-49BF-BC8B-D71898F7BBF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{627C35B9-83FF-49BF-BC8B-D71898F7BBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{627C35B9-83FF-49BF-BC8B-D71898F7BBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{627C35B9-83FF-49BF-BC8B-D71898F7BBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC2B8921-1CBA-4E40-9044-4C00C234C065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC2B8921-1CBA-4E40-9044-4C00C234C065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC2B8921-1CBA-4E40-9044-4C00C234C065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC2B8921-1CBA-4E40-9044-4C00C234C065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73DC19D0-FE67-4B70-8ABF-8D021A27D21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73DC19D0-FE67-4B70-8ABF-8D021A27D21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73DC19D0-FE67-4B70-8ABF-8D021A27D21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73DC19D0-FE67-4B70-8ABF-8D021A27D21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8D3EC4D-F4CB-4B31-88B8-F8A90AF274B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D3EC4D-F4CB-4B31-88B8-F8A90AF274B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D3EC4D-F4CB-4B31-88B8-F8A90AF274B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D3EC4D-F4CB-4B31-88B8-F8A90AF274B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{570B9930-F432-408A-BB38-255A11FDD164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{570B9930-F432-408A-BB38-255A11FDD164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{570B9930-F432-408A-BB38-255A11FDD164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{570B9930-F432-408A-BB38-255A11FDD164}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+﻿<form id="myForm" onsubmit="saveUser()">
+    <div id="dialog" title="Create Album">
+        <span style="padding-right:10px;">User Name:</span><input type="text" id="userName" onfocus="removenameerror();" onblur="    validatename()" /><br /><span id="nameerror" style="display:none;padding-left:5%;color:red" >Provide user name</span><br /><br />
+        <span style="padding-right:10px;">User Email:</span><input type="text" id="userEmail" onfocus="removeemailerror();" onblur="    validateemail()" /><br /><span id="emailerror" style="display:none;padding-left:17%;color:red">Provide a valid email address</span><br /><br />
+        <input type="submit" id="btnUser"  onclick="saveUser()" /><br /><br />
+        <span style="text-align:left;">This information will only be saved for the purposes of communicating with those who have provided this information voluntarily regarding our services.We will never sell your name or email address to anyone.</span>
+
+
+    </div>
+</form>
+

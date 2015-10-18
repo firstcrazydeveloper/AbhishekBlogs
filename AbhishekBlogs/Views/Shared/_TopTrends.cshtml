@@ -1,0 +1,60 @@
+﻿@using AbhishekBlogs.Helpers;
+@model IEnumerable<AbhishekBlogsDataEntities.BlogEntity>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="toptrends">
+    
+    <div class="header">Recent Blogs</div>
+    <div class="bodycontent">
+        @foreach (var child in Model)
+        {
+
+
+            <p >
+
+                @Html.ActionLink(child.Name, "BlogView", new { id = child.Id, typename = child.Name.ToSeoUrl() })
+            </p>
+
+
+        }
+    </div>
+    
+</div>*@
+<div id='sidebar-tengah' style="min-width:267px;">
+    <ul class='navtab' style="background-color:#2E2E2E">
+        <li class='nav-one'><a class='current' href='#populartab'>Latest Post</a></li>
+        <li class='nav-two'><a href='#Archive'>Archive</a></li>
+
+    </ul>
+    <div class='list-tabwrap' style="width: 100%;height: 145px;overflow: auto;min-width:267px">
+        <div class='sidebarmd-widget' id='populartab'>
+            <div class='sidebar tabct section' id='sidebar-popularx1'>
+                <div class='widget PopularPosts' id='PopularPosts1'>
+                    <h2>Popular Posts</h2>
+                    <div class='widget-content popular-posts'>
+                        <ul>
+                            
+                            @foreach (var child in Model)
+                            {
+
+
+                                <li>
+
+                                    @Html.ActionLink(child.Name, "BlogView", new { id = child.Id, typename = child.Name.ToSeoUrl() })
+                                </li>
+
+
+                            }
+                        </ul>
+                        <div class='clear'></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

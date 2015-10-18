@@ -1,0 +1,28 @@
+Data Time:23-08-2015 09:14:56
+Exception Name:Attaching an entity of type 'AbhishekBlogsDataLayer.blog_keywords' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+Event Name:System.InvalidOperationException: Attaching an entity of type 'AbhishekBlogsDataLayer.blog_keywords' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at AbhishekBlogsDataLayer.BlogKeywords.editBlogKeywords(BlogKeywordsEntity blogKeywordsEntity) in e:\Projects\FirstCrazyDeveloper\AbhishekBlog_Current_Version\AbhishekBlogs\AbhishekBlogs\AbhishekBlogsDataLayer\BlogKeywords.cs:line 65
+   at AbhishekBlogsDataLayer.Blogs.editBlog(BlogEntity blogEntity) in e:\Projects\FirstCrazyDeveloper\AbhishekBlog_Current_Version\AbhishekBlogs\AbhishekBlogs\AbhishekBlogsDataLayer\Blogs.cs:line 100
+Error Line No.:100
+Inner Exception Message
+Data Time:23-08-2015 09:28:16
+Exception Name:Attaching an entity of type 'AbhishekBlogsDataLayer.blog_keywords' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+Event Name:System.InvalidOperationException: Attaching an entity of type 'AbhishekBlogsDataLayer.blog_keywords' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+   at System.Data.Entity.Core.Objects.ObjectContext.VerifyRootForAdd(Boolean doAttach, String entitySetName, IEntityWrapper wrappedEntity, EntityEntry existingEntry, EntitySet& entitySet, Boolean& isNoOperation)
+   at System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClassa.<Attach>b__9()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   at System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   at AbhishekBlogsDataLayer.BlogKeywords.editBlogKeywords(BlogKeywordsEntity blogKeywordsEntity) in e:\Projects\FirstCrazyDeveloper\AbhishekBlog_Current_Version\AbhishekBlogs\AbhishekBlogs\AbhishekBlogsDataLayer\BlogKeywords.cs:line 65
+   at AbhishekBlogsDataLayer.Blogs.editBlog(BlogEntity blogEntity) in e:\Projects\FirstCrazyDeveloper\AbhishekBlog_Current_Version\AbhishekBlogs\AbhishekBlogs\AbhishekBlogsDataLayer\Blogs.cs:line 100
+Error Line No.:100
+Inner Exception Message

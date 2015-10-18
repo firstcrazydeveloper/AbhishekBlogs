@@ -1,0 +1,56 @@
+﻿@model AbhishekBlogsDataEntities.BlogEntity
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BlogEntity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Blog_type_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blog_type_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Blog_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blog_Id)
+        </dd>
+
+      
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+      
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+       
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color default-margin-bottom">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    }
+</div>
